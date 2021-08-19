@@ -1,10 +1,10 @@
 /*Iteration 1: Names and Input */console.log("- - - - - - - Iteration 1: Names and Input - - - - - - -" )
 
 
-let hacker1 = "Mark";
+let hacker1 = "Marcus";
 console.log(`1.2 The driver's name is ${hacker1}`);
 
-let hacker2 = "Dave";
+let hacker2 = "John";
 console.log(`1.4 The navigator's name is ${hacker2}`);
 
 
@@ -25,28 +25,31 @@ if (hacker1.length > hacker2.length) {
 
 //3.1 Print all the characters of the driver's name, separated by a space and in capitals i.e. "J O H N"
 
-hacker1 = hacker1.split('')
-console.log("3.1", hacker1)
+console.log(hacker1.toUpperCase().split(''))
+console.log(hacker2.toUpperCase().split(''))
 
 
 //3.2 Print all the characters of the navigator's name, in reverse order. i.e. "nhoJ"
 
-//FAIL - I couldn't find a possible solution for this. 
-console.log("3.2 FAIL :(")
+console.log(hacker1.split('').reverse())
+console.log(hacker2.split('').reverse())
+
 
 /* 3.3 Depending on the lexicographic order of the strings, print:
 - The driver's name goes first.
 - Yo, the navigator goes first definitely.
 - What?! You both have the same name? */
 
-if (hacker1 < hacker2){
-  console.log("3.3 The driver's name goes first.")
-} else if (hacker1 > hacker2){
-  console.log("3.3 Yo, the navigator goes first definitely.")
-} else {
-  console.log("3.3 What?! You both have the same name?")
-}
+let newArr = [hacker1, hacker2]
 
+newArr.sort( (a,b) => {
+  if(a === b) console.log("What?! You both have the same name?")
+  else if(a > b ){
+    console.log("The hacker's 1 name goes first.")
+  } else {
+        console.log("The hacker's 2 name goes first.")
+  }
+})
 
 
 
@@ -63,3 +66,18 @@ Cras semper mauris at ultricies ultricies. Praesent sodales mattis sem in lobort
 
   let wordFinder = paragraphs.search("et")
   console.log(`Bonus 2: Our pharagraphs have ${wordFinder} times the word "et"`)
+
+  /*   BONUS  2  */ console.log("- - - - - - - BONUS 2 - - - - - - -" )
+
+function isPalindrome(str){
+    let normalized = str.toLowerCase().match(/[a-z]/gi).reverse();
+     return normalized.join('') === normalized.reverse().join('');
+ }
+
+ let palim = "Amor, Roma"
+
+ if(isPalindrome(palim)){
+     console.log("Yes, is a palindrome")
+ } else {
+       console.log("No, is not a palindrome")
+ }
